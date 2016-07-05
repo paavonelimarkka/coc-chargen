@@ -4,6 +4,28 @@
 </head>
 <body>
   <h1>Call of Cthulhu random character creator</h1>
+  <table>
+    <tr>
+      <td>STR:</td>
+      <td id="str"></td>
+      <td>SIZ:</td>
+      <td id="siz"></td>
+      <td>DEX:</td>
+      <td id="dex"></td>
+      <td>APP:</td>
+      <td id="app"></td>
+      <td>CON:</td>
+      <td id="con"></td>
+      <td>INT:</td>
+      <td id="int"></td>
+      <td>POW:</td>
+      <td id="pow"></td>
+      <td>EDU:</td>
+      <td id="edu"></td>
+      <td>LUCK:</td>
+      <td id="lck"></td>
+    </tr>
+  </table>
 </body>
 <script>
 
@@ -16,22 +38,20 @@ function roll(times,dice) {
   return result;
 };
 
-// Variables for 7th edition CoC
-str7 = roll(3,6) * 5;
-siz7 = (roll(2,6) + 6) *5;
-dex7 = roll(3,6) * 5;
-app7 = roll(3,6) * 5;
-con7 = roll(3,6) * 5;
-int7 = (roll(2,6) + 6) * 5
-pow7 = roll(3,6) * 5;
-edu7 = roll(3,6) * 5;
-lck7 = (roll(2,6) + 6) * 5 
+// Create-function for 7th edition character
+function create7() {
+  document.getElementById("str").innerHTML = roll(3,6) * 5;
+  document.getElementById("siz").innerHTML = (roll(2,6) + 6) * 5;
+  document.getElementById("dex").innerHTML = roll(3,6) * 5;
+  document.getElementById("app").innerHTML = roll(3,6) * 5;
+  document.getElementById("con").innerHTML = roll(3,6) * 5;
+  document.getElementById("int").innerHTML = (roll(2,6) + 6) * 5
+  document.getElementById("pow").innerHTML = roll(3,6) * 5;
+  document.getElementById("edu").innerHTML = roll(3,6) * 5;
+  document.getElementById("lck").innerHTML = (roll(2,6) + 6) * 5
+}
 
-// Variables for 7th edition CoC, quickstart rules
-
-// Variables for 6th edition CoC
-
-console.log(siz7);
+create7();
 
 </script>
 </html>
