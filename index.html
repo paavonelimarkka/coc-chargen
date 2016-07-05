@@ -3,10 +3,11 @@
   <title>CoC random character creator</title>
 </head>
 <body>
-  <h1>Call of Cthulhu random character creator (with 7th edition quick start rules)</h1>
+  <h1>Call of Cthulhu random character creator</h1>
 </body>
 <script>
 
+// Roll function
 function roll(times,dice) {
   var result = 0;
   for (var i=0; i<times; i++) {
@@ -15,7 +16,22 @@ function roll(times,dice) {
   return result;
 };
 
-console.log(roll(2,6));
+// Variables for 7th edition CoC
+str7 = roll(3,6) * 5;
+siz7 = (roll(2,6) + 6) *5;
+dex7 = roll(3,6) * 5;
+app7 = roll(3,6) * 5;
+con7 = roll(3,6) * 5;
+int7 = (roll(2,6) + 6) * 5
+pow7 = roll(3,6) * 5;
+edu7 = roll(3,6) * 5;
+lck7 = (roll(2,6) + 6) * 5 
+
+// Variables for 7th edition CoC, quickstart rules
+
+// Variables for 6th edition CoC
+
+console.log(siz7);
 
 </script>
 </html>
