@@ -24,6 +24,10 @@
       <td id="edu"></td>
       <td>LUCK:</td>
       <td id="lck"></td>
+      <td>HP:</td>
+      <td id="hp"></td>
+      <td>DB:</td>
+      <td id="db"></td>
     </tr>
   </table>
 </body>
@@ -38,17 +42,61 @@ function roll(times,dice) {
   return result;
 };
 
+// Variables for size, con, dex, ...
+var str;
+var siz;
+var dex;
+var app;
+var con;
+var int;
+var pow;
+var edu;
+var lck;
+var hp;
+var db;
+
+var paska;
+
 // Create-function for 7th edition character
 function create7() {
-  document.getElementById("str").innerHTML = roll(3,6) * 5;
-  document.getElementById("siz").innerHTML = (roll(2,6) + 6) * 5;
-  document.getElementById("dex").innerHTML = roll(3,6) * 5;
-  document.getElementById("app").innerHTML = roll(3,6) * 5;
-  document.getElementById("con").innerHTML = roll(3,6) * 5;
-  document.getElementById("int").innerHTML = (roll(2,6) + 6) * 5
-  document.getElementById("pow").innerHTML = roll(3,6) * 5;
-  document.getElementById("edu").innerHTML = roll(3,6) * 5;
-  document.getElementById("lck").innerHTML = (roll(2,6) + 6) * 5
+
+  // Creating values for stat variables
+  str = roll(3,6) * 5;
+  siz = (roll(2,6) + 6) * 5;
+  dex = roll(3,6) * 5;
+  app = roll(3,6) * 5;
+  con = roll(3,6) * 5;
+  int = (roll(2,6) + 6) * 5;
+  pow = roll(3,6) * 5;
+  edu = roll(3,6) * 5;
+  lck = (roll(2,6) + 6) * 5;
+  hp = Math.floor((con + siz) / 10);
+
+  // Get the damage bonus
+  if (str + siz <= 64) {
+    db = "-2";
+  } else if (str + siz >= 65 && str + siz <= 84) {
+    db = "-1";
+  } else if (str + siz >= 85 && str + siz <= 124) {
+    db = "None";
+  } else if (str + siz >= 125 && str + siz <= 164) {
+    db = "+1D4";
+  } else {
+    db = "+1D6";
+  }
+
+  // Placing stat variables in the table
+  document.getElementById("str").innerHTML = str;
+  document.getElementById("siz").innerHTML = siz;
+  document.getElementById("dex").innerHTML = dex;
+  document.getElementById("app").innerHTML = app;
+  document.getElementById("con").innerHTML = con;
+  document.getElementById("int").innerHTML = int;
+  document.getElementById("pow").innerHTML = pow;
+  document.getElementById("edu").innerHTML = edu;
+  document.getElementById("lck").innerHTML = lck;
+  document.getElementById("hp").innerHTML = hp;
+  document.getElementById("db").innerHTML = db;
 }
 
 create7();
