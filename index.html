@@ -30,6 +30,8 @@
       <td id="db"></td>
       <td>MOV:</td>
       <td id="mov"></td>
+      <td>AGE:</td>
+      <td id="age"></td>
     </tr>
   </table>
 </body>
@@ -91,11 +93,15 @@ function create7() {
   if (dex < siz && str < siz) {
     mov = 7;
   } else if (dex > siz && str > siz) {
-    console.log("EIJUMALAUTA");
     mov = 9;
   } else {
     mov = 8;
   }
+
+  // Get the age
+  age = Math.round(15 + ( Math.random() * 75 ));
+
+  // To do 
 
   // Placing stat variables in the table
   document.getElementById("str").innerHTML = str;
@@ -110,6 +116,7 @@ function create7() {
   document.getElementById("hp").innerHTML = hp;
   document.getElementById("db").innerHTML = db;
   document.getElementById("mov").innerHTML = mov;
+  document.getElementById("age").innerHTML = age;
 }
 
 create7();
