@@ -98,10 +98,8 @@ function create7() {
     mov = 8;
   }
 
-  // Get the age
-  age = Math.round(15 + ( Math.random() * 75 ));
-
-  // To do 
+  // Get the age, emphasis on younger and mid aged people
+  age = Math.floor(Math.pow(Math.random(), 2) * 76) + 15;
 
   // Placing stat variables in the table
   document.getElementById("str").innerHTML = str;
