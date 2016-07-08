@@ -28,6 +28,8 @@
       <td id="hp"></td>
       <td>DB:</td>
       <td id="db"></td>
+      <td>MOV:</td>
+      <td id="mov"></td>
     </tr>
   </table>
 </body>
@@ -54,8 +56,8 @@ var edu;
 var lck;
 var hp;
 var db;
-
-var paska;
+var mov;
+var age;
 
 // Create-function for 7th edition character
 function create7() {
@@ -85,6 +87,16 @@ function create7() {
     db = "+1D6";
   }
 
+  // Get the movement rate
+  if (dex < siz && str < siz) {
+    mov = 7;
+  } else if (dex > siz && str > siz) {
+    console.log("EIJUMALAUTA");
+    mov = 9;
+  } else {
+    mov = 8;
+  }
+
   // Placing stat variables in the table
   document.getElementById("str").innerHTML = str;
   document.getElementById("siz").innerHTML = siz;
@@ -97,6 +109,7 @@ function create7() {
   document.getElementById("lck").innerHTML = lck;
   document.getElementById("hp").innerHTML = hp;
   document.getElementById("db").innerHTML = db;
+  document.getElementById("mov").innerHTML = mov;
 }
 
 create7();
