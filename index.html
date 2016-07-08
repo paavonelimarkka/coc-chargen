@@ -61,6 +61,40 @@ var db;
 var mov;
 var age;
 
+function normalDistribution(x, s, mu) {
+  return Math.exp(-(Math.pow(x-mu, 2) / (2*(Math.pow(s, 2))))) / (s*Math.sqrt(2.0*Math.PI));
+}
+
+function generateAgeND(minAge=15, maxAge=100, s=25.0, mu=30.0) {
+
+    var r = Math.random();
+    var sum = 0;
+    var ps = [];
+
+    for (var i = minAge; i <= maxAge; ++i) {
+        p = normalDistribution(i, s, mu);
+        ps.push(p);
+        sum += p;
+    }
+
+    // Normalize
+    var normalized = ps.map(x => x / sum);
+    sum = 0;
+
+    for (var i = 0 ; i < normalized.length; ++i) {
+      if (sum >= r) {
+        return i + minAge;
+      }
+      sum += normalized[i];
+    }
+
+    return maxAge;
+}
+
+function generateAgeUniform(minAge=15, maxAge=100) {
+  return Math.floor(Math.random() * (maxAge - minAge)) + minAge;
+}
+
 // Create-function for 7th edition character
 function create7() {
 
@@ -99,7 +133,8 @@ function create7() {
   }
 
   // Get the age, emphasis on younger and mid aged people
-  age = Math.floor(Math.pow(Math.random(), 2) * 76) + 15;
+  var generateAge = generateAgeND;
+  age = generateAge();
 
   // Placing stat variables in the table
   document.getElementById("str").innerHTML = str;
