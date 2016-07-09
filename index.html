@@ -82,10 +82,10 @@ function generateAgeND(minAge=15, maxAge=100, s=25.0, mu=30.0) {
     sum = 0;
 
     for (var i = 0 ; i < normalized.length; ++i) {
+      sum += normalized[i];
       if (sum >= r) {
         return i + minAge;
       }
-      sum += normalized[i];
     }
 
     return maxAge;
